@@ -1,0 +1,26 @@
+.Menu__item {
+  width: 100%;
+  margin: 3rem 0;
+  font-size: 2rem;
+  text-align: center;
+}
+.Menu__item:last-child {
+  order: -1;
+}
+.Item__selected {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+@media all and (min-width: 1100px) {
+  .Menu__item {
+    width: fit-content;
+    margin: 0 1rem 0 0;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: right;
+  }
+  .Menu__item:last-child {
+    order: 0;
+  }
+}
