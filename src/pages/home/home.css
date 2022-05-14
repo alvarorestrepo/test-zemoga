@@ -87,6 +87,10 @@ main[role="main"] {
   padding: 0 1rem;
   margin-top: 2rem;
 }
+.cards {
+  display: flex;
+  overflow-x: scroll;
+}
 
 main h2,
 main h3,
@@ -108,6 +112,13 @@ main h2 {
   html,
   body {
     font-size: 14px;
+  }
+  .cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: hidden;
   }
 }
 

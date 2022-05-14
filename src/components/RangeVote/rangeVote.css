@@ -1,0 +1,46 @@
+.rangeVote {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.rangeVote_content_positive {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+  background-color: rgba(var(--color-green-positive), 0.5);
+}
+.rangeVote_content_negative {
+  height: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  background-color: rgba(var(--color-yellow-negative), 0.5);
+}
+.infoPersent {
+  font-size: 16px;
+  font-weight: 100;
+  color: var(--color-white);
+}
+.icon_range {
+  margin: 10px;
+}
+@media all and (min-width: 768px) {
+  .rangeVote_content_positive {
+    height: 40px;
+  }
+  .rangeVote_content_negative {
+    height: 40px;
+  }
+  .infoPersent {
+    font-size: 18px;
+  }
+}

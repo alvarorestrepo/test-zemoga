@@ -1,0 +1,222 @@
+.card {
+  width: 280px;
+  height: 300px;
+  margin: 0px 10px;
+}
+.background {
+  width: 280px;
+  height: 300px;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.5396752450980392) 10%,
+    rgba(255, 255, 255, 0.29597776610644255) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.card_img_background {
+  width: 100%;
+  height: 100%;
+  width: 280px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.img_background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+.resultImgBad {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(var(--color-yellow-negative));
+  border: none;
+}
+.resultImgGood {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 90px;
+  left: 0px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(var(--color-green-positive));
+  border: none;
+}
+.card_content_title {
+  position: absolute;
+  top: 90px;
+  left: 30px;
+}
+.title {
+  color: var(--color-white);
+  font-size: 28px;
+  width: 230px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.card_content_text {
+  width: 230px;
+  position: absolute;
+  top: 120px;
+  left: 30px;
+}
+.description {
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 100;
+}
+.PositiveVote {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 210px;
+  left: 80px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(var(--color-green-positive));
+  border: none;
+}
+.NegativeVote {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 210px;
+  left: 120px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(var(--color-yellow-negative));
+  border: none;
+}
+.sendVote {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  top: 207px;
+  left: 160px;
+  text-align: center;
+  align-self: center;
+  background-color: var(--color-darker-background);
+  border: none;
+  border: 1px solid var(--color-white);
+}
+.sendVote_text {
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 100;
+}
+.info_time {
+  position: absolute;
+  top: 170px;
+  left: 100px;
+}
+.time {
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: 100;
+}
+.rangeContend {
+  position: absolute;
+  width: 280px;
+  height: 30px;
+  bottom: 0;
+  left: 0;
+}
+
+@media all and (min-width: 768px) {
+  .card {
+    width: 346px;
+    height: 350px;
+    margin: 10px 10px;
+  }
+  .background {
+    width: 346px;
+    height: 350px;
+  }
+  .card_img_background {
+    width: 346px;
+    height: 350px;
+  }
+  .resultImgBad {
+    width: 30px;
+    height: 30px;
+    top: 140px;
+  }
+  .resultImgGood {
+    width: 30px;
+    height: 30px;
+    top: 140px;
+  }
+  .card_content_title {
+    position: absolute;
+    top: 138px;
+    left: 34px;
+  }
+  .title {
+    font-size: 32px;
+    width: 260px;
+    font-weight: 500;
+  }
+  .card_content_text {
+    width: 230px;
+    position: absolute;
+    top: 170px;
+    left: 40px;
+  }
+  .description {
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 100;
+    width: 280px;
+  }
+  .PositiveVote {
+    width: 30px;
+    height: 30px;
+    top: 260px;
+    left: 110px;
+  }
+  .NegativeVote {
+    width: 30px;
+    height: 30px;
+    top: 260px;
+    left: 150px;
+  }
+  .sendVote {
+    top: 258px;
+    left: 200px;
+  }
+  .sendVote_text {
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 100;
+  }
+  .info_time {
+    position: absolute;
+    top: 220px;
+    left: 130px;
+  }
+  .time {
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 100;
+  }
+  .rangeContend {
+    position: absolute;
+    width: 346px;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+  }
+}
