@@ -1,9 +1,43 @@
+import { useState } from "react";
 import badHand from "../../assets/img/thumbs-down.svg";
 import goodHand from "../../assets/img/thumbs-up.svg";
 import RangeVote from "../RangeVote";
+import { useDispatch } from "react-redux";
 import "./Card.css";
+import { useVote } from "../../hooks/useVote";
 
-function Card({ name, description, lastUpdated, picture, positive, negative }) {
+function Card({
+  name,
+  description,
+  lastUpdated,
+  picture,
+  positive,
+  negative,
+  id,
+}) {
+  const [votePositive, setVotePositive] = useState(null);
+  const [voteNegative, setVoteNegative] = useState(null);
+  const [voteFlag, setVoteFlag] = useState(false);
+
+  const dispatch = useDispatch();
+
+  const borderColorVote = !votePositive
+    ? "PositiveVote"
+    : "PositiveVoteWithBorder";
+  const borderColorVotebad = !voteNegative
+    ? "NegativeVote"
+    : "NegativeVoteWithBorder";
+
+  const borderSend = !voteNegative && !votePositive ? "sendVote" : "borderSend";
+
+  const { voteSelection, sentVoteCelebrity } = useVote({
+    setVotePositive,
+    votePositive,
+    setVoteNegative,
+    voteNegative,
+    dispatch,
+  });
+
   return (
     <div className="card">
       <div className="card_img_background">
@@ -27,13 +61,22 @@ function Card({ name, description, lastUpdated, picture, positive, negative }) {
         <div className="info_time">
           <p className="time">{lastUpdated}</p>
         </div>
-        <button className="PositiveVote">
+        <button
+          className={borderColorVote}
+          onClick={() => voteSelection(true, "positive")}
+        >
           <img className="imgCard" src={goodHand} alt="good"></img>
         </button>
-        <button className="NegativeVote">
+        <button
+          className={borderColorVotebad}
+          onClick={() => voteSelection(true, "negative")}
+        >
           <img className="imgCard" src={badHand} alt="bad"></img>
         </button>
-        <button className="sendVote">
+        <button
+          className={borderSend}
+          onClick={() => sentVoteCelebrity(id, positive, negative)}
+        >
           <span className="sendVote_text">Vote Now</span>
         </button>
         <div className="rangeContend">

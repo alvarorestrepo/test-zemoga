@@ -89,6 +89,18 @@
   background-color: rgba(var(--color-green-positive));
   border: none;
 }
+.PositiveVoteWithBorder {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 210px;
+  left: 80px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(var(--color-green-positive));
+  border: 1px solid var(--color-white);
+}
+
 .NegativeVote {
   width: 28px;
   height: 28px;
@@ -100,7 +112,29 @@
   background-color: rgba(var(--color-yellow-negative));
   border: none;
 }
+.NegativeVoteWithBorder {
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 210px;
+  left: 120px;
+  text-align: center;
+  align-self: center;
+  background-color: rgba(var(--color-yellow-negative));
+  border: 1px solid var(--color-white);
+}
 .sendVote {
+  width: 100px;
+  height: 35px;
+  position: absolute;
+  top: 207px;
+  left: 160px;
+  text-align: center;
+  align-self: center;
+  background-color: var(--color-darker-background);
+  border: none;
+}
+.borderSend {
   width: 100px;
   height: 35px;
   position: absolute;

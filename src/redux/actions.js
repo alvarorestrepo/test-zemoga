@@ -1,7 +1,9 @@
 import axios from "axios";
 
 //CONSTANTES
-export const GET_USER = "GET_USER";
+export const GET_CELEBRITIES = "GET_CELEBRITIES";
+export const UPDATE_VOTE = "UPDATE_VOTE";
+export const UPDATE_CELEBRITY = "UPDATE_CELEBRITY";
 export const SET_LOOGED = "SET_LOOGED";
 export const VALIDATE_EMAIL = "VALIDATE_EMAIL";
 export const UPDATE_USER = "UPDATE_USER";
@@ -11,136 +13,58 @@ export const GET_PRODUCTS = "GET_PRODUCTS";
 
 //Endpoints
 
-const apiLoginUrl = (email) => {
-  return `http://localhost:8080/users?email=${email}`;
-  
-};
-const apiProducts = "https://fakestoreapi.com/products/";
+const apiCelebrities =
+  "https://486164eco4.execute-api.us-east-1.amazonaws.com/get-celebrities";
 
-export const getUser = ({ email }) => {
+const apiUpdateCelebrity =
+  "https://486164eco4.execute-api.us-east-1.amazonaws.com/update-celebrity-votes";
+
+export const getCelebrities = () => {
   return (dispatch) => {
     axios
-      .get(apiLoginUrl(email))
+      .get(apiCelebrities)
       .then((res) => {
-        if (res.data.length > 0) {
+        if (res.data.data.length > 0) {
           dispatch({
-            type: GET_USER,
-            payload: res.data[0],
+            type: GET_CELEBRITIES,
+            payload: res.data.data,
           });
         } else {
-          dispatch(
-            getFeedback({
-              textFeedback: "User or password incorrect",
-              openFeedback: true,
-            })
-          );
+          alert("No hay celebridades para mostrar");
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log("error del catch", err);
       });
   };
 };
 
-export const getProducts = () => {
-  return async (dispatch) => {
-    await axios
-      .get(apiProducts)
+export const apiUpdateCelebrityVotes = (
+  celebrity_id,
+  property_to_update,
+  update_value
+) => {
+  const body = {
+    celebrity_id,
+    property_to_update,
+    update_value,
+  };
+  return (dispatch) => {
+    axios
+      .patch(apiUpdateCelebrity, body)
       .then((res) => {
+        console.log(res.data);
         dispatch({
-          type: GET_PRODUCTS,
-          payload: { products: res.data },
+          type: UPDATE_CELEBRITY,
+          payload: {
+            celebrity_id,
+            property_to_update,
+            update_value,
+          },
         });
       })
       .catch((err) => {
-        console.log(err);
+        console.log("error del catch", err);
       });
-  };
-};
-
-export const getFeedback = ({ textFeedback, openFeedback }) => {
-  return (dispatch) => {
-    dispatch({
-      type: FEEDBACK,
-      payload: {
-        textFeedback,
-        openFeedback,
-      },
-    });
-  };
-};
-
-export const loggedUser = () => {
-  return {
-    type: SET_LOOGED,
-    payload: { logged: true },
-  };
-};
-
-export const getChangePassword = ({ email }) => {
-  return (dispatch) => {
-    axios
-      .get(apiLoginUrl(email))
-      .then((res) => {
-        if (res.data.length > 0) {
-          dispatch({
-            type: CHANGE_PASSWORD,
-            payload: { changePassword: true },
-          });
-        } else {
-          dispatch(
-            getFeedback({
-              textFeedback: "El usuario no existe",
-              openFeedback: true,
-            })
-          );
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
-
-export const changePasswordFalse = () => {
-  return (dispatch) => {
-    dispatch({
-      type: CHANGE_PASSWORD,
-      payload: { changePassword: false },
-    });
-  };
-};
-
-export const updateUser = ({ type, contend, id }) => {
-  return (dispatch) => {
-    
-    axios
-      .patch(`http://localhost:8080/users/${id}`, { [type]: contend })
-      .then((res) => {
-        dispatch({
-          type: GET_USER,
-          payload: res.data,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
-
-export const logOut = () => {
-  return (dispatch) => {
-    dispatch({
-      type: CHANGE_PASSWORD,
-      payload: { changePassword: false },
-    });
-    dispatch({
-      type: GET_USER,
-      payload: [],
-    });
-    dispatch({
-      type: SET_LOOGED,
-      payload: { logged: false },
-    });
   };
 };
