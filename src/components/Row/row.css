@@ -2,6 +2,7 @@
   width: 100%;
   height: 180px;
   position: relative;
+  margin-bottom: 10px;
 }
 .row_picture {
   width: 300px;
@@ -23,10 +24,80 @@
   background: rgb(255, 255, 255);
   background: linear-gradient(
     90deg,
-    rgba(181, 181, 181, 0.572) 2%,
-    rgba(52, 51, 51, 0.289) 14%,
-    rgb(85, 85, 88) 25%,
+    rgba(255, 255, 255, 0) 6%,
+    rgb(108, 108, 108) 24%,
+    rgb(92, 92, 93) 27%,
     rgb(76, 75, 75) 79%,
     rgba(99, 95, 95, 1) 91%
   );
+}
+.row_rangeContend {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  left: 0;
+}
+.row_content_title {
+  position: absolute;
+  top: 10px;
+  left: 200px;
+}
+.row_title {
+  font-size: 35px;
+  font-weight: 300;
+  color: var(--color-white);
+}
+.row_content_text {
+  position: absolute;
+  top: 50px;
+  left: 200px;
+}
+.row_description {
+  font-size: 18px;
+  font-weight: 100;
+  color: var(--color-white);
+}
+.row_info_time {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.row_time {
+  font-size: 14px;
+  font-weight: 100;
+  color: var(--color-white);
+}
+.row_positive {
+  position: absolute;
+  top: 60px;
+  right: 220px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(var(--color-green-positive));
+  border: none;
+}
+.row_negative {
+  position: absolute;
+  top: 60px;
+  right: 160px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(var(--color-yellow-negative));
+  border: none;
+}
+.row_sendVote {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 120px;
+  height: 40px;
+  background-color: var(--color-darker-background);
+  border: none;
+  border: 1px solid var(--color-white);
+}
+.row_sendVote_text {
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 100;
 }

@@ -91,6 +91,10 @@ main[role="main"] {
   display: flex;
   overflow-x: scroll;
 }
+.rows {
+  display: flex;
+  flex-direction: column;
+}
 
 main h2,
 main h3,

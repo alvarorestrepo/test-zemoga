@@ -14,19 +14,33 @@ function Home() {
       <Header />
       <Banner />
       <div className="max-centered">
-        <main role="main" className="cards">
-          {/* {data.data.map((item, index) => (
-            <Card
-              key={index}
-              name={item.name}
-              description={item.description}
-              lastUpdated={item.lastUpdated}
-              picture={item.picture}
-              positive={item.votes.positive}
-              negative={item.votes.negative}
-            />
-          ))} */}
-          <Row />
+        <main role="main">
+          <div className="cards">
+            {data.data.map((item, index) => (
+              <Card
+                key={index}
+                name={item.name}
+                description={item.description}
+                lastUpdated={item.lastUpdated}
+                picture={item.picture}
+                positive={item.votes.positive}
+                negative={item.votes.negative}
+              />
+            ))}
+          </div>
+          <div className="rows">
+            {data.data.map((item, index) => (
+              <Row
+                key={index}
+                name={item.name}
+                description={item.description}
+                lastUpdated={item.lastUpdated}
+                picture={item.picture}
+                positive={item.votes.positive}
+                negative={item.votes.negative}
+              />
+            ))}
+          </div>
         </main>
         <BannerBottom />
         <hr role="separator" />

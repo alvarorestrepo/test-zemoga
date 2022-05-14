@@ -28,10 +28,10 @@ function Card({ name, description, lastUpdated, picture, positive, negative }) {
           <p className="time">{lastUpdated}</p>
         </div>
         <button className="PositiveVote">
-          <img className="imgCard" src={goodHand} alt="personaje"></img>
+          <img className="imgCard" src={goodHand} alt="good"></img>
         </button>
         <button className="NegativeVote">
-          <img className="imgCard" src={badHand} alt="personaje"></img>
+          <img className="imgCard" src={badHand} alt="bad"></img>
         </button>
         <button className="sendVote">
           <span className="sendVote_text">Vote Now</span>
