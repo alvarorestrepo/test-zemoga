@@ -5,6 +5,7 @@ import goodHand from "../../assets/img/thumbs-up.svg";
 import { updateCelebrityAgaine } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useVote } from "../../hooks/useVote";
+import moment from "moment";
 import "./row.css";
 
 function Row({
@@ -16,6 +17,7 @@ function Row({
   negative,
   id,
   update,
+  category,
 }) {
   const [votePositive, setVotePositive] = useState(null);
   const [voteNegative, setVoteNegative] = useState(null);
@@ -53,7 +55,9 @@ function Row({
         </div>
         <div className="row_info_time">
           <p className="row_time">
-            {update ? "Thank you for your vote!" : lastUpdated}
+            {update
+              ? "Thank you for your vote!"
+              : moment(lastUpdated, "YYYYMMDD").fromNow() + " in " + category}
           </p>
         </div>
         {!update && (
