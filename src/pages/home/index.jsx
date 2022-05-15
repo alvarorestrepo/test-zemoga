@@ -4,7 +4,6 @@ import BannerBottom from "../../components/BannerBottom";
 import Card from "../../components/Card";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import data from "../../assets/data.json";
 import { getCelebrities } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 

@@ -28,7 +28,7 @@ const Navbar = () => {
             <MenuItem key={index} route={item.route} name={item.name} />
           ))}
           <li>
-            <form action="javascript:void(0)">
+            <form>
               <input
                 className="nav__search-input"
                 aria-label="search"

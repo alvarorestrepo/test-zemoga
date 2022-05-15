@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   // const logged = useSelector(state => state.logged);
