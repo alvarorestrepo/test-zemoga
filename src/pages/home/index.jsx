@@ -46,7 +46,10 @@ function Home() {
       <Banner />
       <div className="max-centered">
         {!widthFlag && (
-          <Select setSelectCheck={setSelectCheck} selectCheck={selectCheck} />
+          <div className="content_select">
+            <span className="text_rulings">Previous Rulings</span>
+            <Select setSelectCheck={setSelectCheck} selectCheck={selectCheck} />
+          </div>
         )}
         <main role="main">
           {widthFlag && (
@@ -83,6 +86,8 @@ function Home() {
                       picture={item.picture}
                       positive={item.votes.positive}
                       negative={item.votes.negative}
+                      id={item.celebrity_id}
+                      update={item.update}
                     />
                   ))}
             </div>

@@ -21,6 +21,7 @@ export const useVote = ({
     }
   };
   const sentVoteCelebrity = (id, positive, negative) => {
+    console.log(id, positive, negative);
     if (votePositive || voteNegative) {
       if (votePositive) {
         dispatch(apiUpdateCelebrityVotes(id, "positive", positive + 1));

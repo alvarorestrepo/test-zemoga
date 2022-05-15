@@ -4,8 +4,8 @@ import goodHand from "../../assets/img/thumbs-up.svg";
 import RangeVote from "../RangeVote";
 import { updateCelebrityAgaine } from "../../redux/actions";
 import { useDispatch } from "react-redux";
-import "./Card.css";
 import { useVote } from "../../hooks/useVote";
+import "./Card.css";
 
 function Card({
   name,
@@ -60,7 +60,9 @@ function Card({
           <p className="description">{description.slice(0, 60)}...</p>
         </div>
         <div className="info_time">
-          <p className="time">{lastUpdated}</p>
+          <p className="time">
+            {update ? "Thank you for your vote!" : lastUpdated}
+          </p>
         </div>
         {!update && (
           <>

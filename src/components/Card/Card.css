@@ -221,13 +221,29 @@
     top: 260px;
     left: 110px;
   }
+  .PositiveVoteWithBorder {
+    width: 30px;
+    height: 30px;
+    top: 260px;
+    left: 110px;
+  }
   .NegativeVote {
     width: 30px;
     height: 30px;
     top: 260px;
     left: 150px;
   }
+  .NegativeVoteWithBorder {
+    width: 30px;
+    height: 30px;
+    top: 260px;
+    left: 150px;
+  }
   .sendVote {
+    top: 258px;
+    left: 200px;
+  }
+  .borderSend {
     top: 258px;
     left: 200px;
   }
