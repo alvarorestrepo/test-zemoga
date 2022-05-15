@@ -5,6 +5,7 @@ import RangeVote from "../RangeVote";
 import { updateCelebrityAgaine } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import { useVote } from "../../hooks/useVote";
+import moment from "moment";
 import "./Card.css";
 
 function Card({
@@ -16,6 +17,7 @@ function Card({
   negative,
   id,
   update,
+  category,
 }) {
   const [votePositive, setVotePositive] = useState(null);
   const [voteNegative, setVoteNegative] = useState(null);
@@ -61,7 +63,9 @@ function Card({
         </div>
         <div className="info_time">
           <p className="time">
-            {update ? "Thank you for your vote!" : lastUpdated}
+            {update
+              ? "Thank you for your vote!"
+              : moment(lastUpdated, "YYYYMMDD").fromNow() + " in " + category}
           </p>
         </div>
         {!update && (

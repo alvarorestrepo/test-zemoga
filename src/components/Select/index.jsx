@@ -1,5 +1,6 @@
 import { useState } from "react";
 import selectCheckIcon from "../../assets/img/select.svg";
+
 import "./select.css";
 function Select({ setSelectCheck, selectCheck }) {
   const [openList, setOpenList] = useState(false);

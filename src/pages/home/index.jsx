@@ -68,6 +68,7 @@ function Home() {
                       negative={item.votes.negative}
                       id={item.celebrity_id}
                       update={item.update}
+                      category={item.category}
                     />
                   ))}
             </div>
@@ -88,6 +89,7 @@ function Home() {
                       negative={item.votes.negative}
                       id={item.celebrity_id}
                       update={item.update}
+                      category={item.category}
                     />
                   ))}
             </div>
@@ -109,6 +111,7 @@ function Home() {
                       negative={item.votes.negative}
                       id={item.celebrity_id}
                       update={item.update}
+                      category={item.category}
                     />
                   ))}
             </div>
