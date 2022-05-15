@@ -2,6 +2,7 @@ import { useState } from "react";
 import badHand from "../../assets/img/thumbs-down.svg";
 import goodHand from "../../assets/img/thumbs-up.svg";
 import RangeVote from "../RangeVote";
+import { updateCelebrityAgaine } from "../../redux/actions";
 import { useDispatch } from "react-redux";
 import "./Card.css";
 import { useVote } from "../../hooks/useVote";
@@ -14,10 +15,10 @@ function Card({
   positive,
   negative,
   id,
+  update,
 }) {
   const [votePositive, setVotePositive] = useState(null);
   const [voteNegative, setVoteNegative] = useState(null);
-  const [voteFlag, setVoteFlag] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -61,23 +62,34 @@ function Card({
         <div className="info_time">
           <p className="time">{lastUpdated}</p>
         </div>
-        <button
-          className={borderColorVote}
-          onClick={() => voteSelection(true, "positive")}
-        >
-          <img className="imgCard" src={goodHand} alt="good"></img>
-        </button>
-        <button
-          className={borderColorVotebad}
-          onClick={() => voteSelection(true, "negative")}
-        >
-          <img className="imgCard" src={badHand} alt="bad"></img>
-        </button>
+        {!update && (
+          <>
+            <button
+              className={borderColorVote}
+              onClick={() => voteSelection(true, "positive")}
+            >
+              <img className="imgCard" src={goodHand} alt="good"></img>
+            </button>
+            <button
+              className={borderColorVotebad}
+              onClick={() => voteSelection(true, "negative")}
+            >
+              <img className="imgCard" src={badHand} alt="bad"></img>
+            </button>
+          </>
+        )}
+
         <button
           className={borderSend}
-          onClick={() => sentVoteCelebrity(id, positive, negative)}
+          onClick={() =>
+            !update
+              ? sentVoteCelebrity(id, positive, negative)
+              : dispatch(updateCelebrityAgaine(id))
+          }
         >
-          <span className="sendVote_text">Vote Now</span>
+          <span className="sendVote_text">
+            {!update ? "Vote Now" : "Vote Again"}
+          </span>
         </button>
         <div className="rangeContend">
           <RangeVote votePositive={positive} voteNegative={negative} />

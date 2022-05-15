@@ -4,12 +4,8 @@ import axios from "axios";
 export const GET_CELEBRITIES = "GET_CELEBRITIES";
 export const UPDATE_VOTE = "UPDATE_VOTE";
 export const UPDATE_CELEBRITY = "UPDATE_CELEBRITY";
-export const SET_LOOGED = "SET_LOOGED";
-export const VALIDATE_EMAIL = "VALIDATE_EMAIL";
-export const UPDATE_USER = "UPDATE_USER";
-export const CHANGE_PASSWORD = "CHANGE_PASSWORD";
+export const UPDATE_AGAIN_VOTE = "UPDATE_AGAIN_VOTE";
 export const FEEDBACK = "FEEDBACK";
-export const GET_PRODUCTS = "GET_PRODUCTS";
 
 //Endpoints
 
@@ -60,11 +56,24 @@ export const apiUpdateCelebrityVotes = (
             celebrity_id,
             property_to_update,
             update_value,
+            update: true,
           },
         });
       })
       .catch((err) => {
         console.log("error del catch", err);
       });
+  };
+};
+
+export const updateCelebrityAgaine = (celebrity_id) => {
+  return (dispatch) => {
+    dispatch({
+      type: UPDATE_AGAIN_VOTE,
+      payload: {
+        celebrity_id,
+        update: false,
+      },
+    });
   };
 };

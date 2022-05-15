@@ -24,10 +24,14 @@ export const useVote = ({
     if (votePositive || voteNegative) {
       if (votePositive) {
         dispatch(apiUpdateCelebrityVotes(id, "positive", positive + 1));
+        setVotePositive(null);
+        setVoteNegative(null);
       }
       if (voteNegative) {
         console.log("voto negativo");
         dispatch(apiUpdateCelebrityVotes(id, "negative", negative + 1));
+        setVotePositive(null);
+        setVoteNegative(null);
       }
     } else {
       alert("Debes seleccionar uno de los dos votos");
