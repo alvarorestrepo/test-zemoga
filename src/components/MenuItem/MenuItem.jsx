@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { NavLink } from "react-router-dom";
 
-import './MenuItem.css'
+import "./MenuItem.css";
 
 const MenuItem = (props) => {
-  let { t, name, route, onClick } = props;
+  let { name, route, onClick } = props;
   return (
     <NavLink
       to={route}
@@ -16,6 +16,6 @@ const MenuItem = (props) => {
       {name}
     </NavLink>
   );
-}
+};
 
-export default (MenuItem);
+export default MenuItem;
